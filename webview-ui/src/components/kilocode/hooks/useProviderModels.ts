@@ -30,6 +30,8 @@ import {
 	qwenCodeModels,
 	qwenCodeDefaultModelId,
 	geminiCliModels,
+	codexCliModels,
+	codexCliDefaultModelId,
 	claudeCodeModels,
 	claudeCodeDefaultModelId,
 	doubaoModels,
@@ -212,6 +214,12 @@ export const getModelsByProvider = ({
 			return {
 				models: geminiCliModels,
 				defaultModel: geminiDefaultModelId,
+			}
+		}
+		case "codex-cli": {
+			return {
+				models: codexCliModels,
+				defaultModel: codexCliDefaultModelId,
 			}
 		}
 		case "anthropic": {

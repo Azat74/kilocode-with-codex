@@ -289,6 +289,12 @@ type GeminiCliProviderConfig = BaseProviderConfig & {
 	geminiCliProjectId?: string
 }
 
+type CodexCliProviderConfig = BaseProviderConfig & {
+	provider: "codex-cli"
+	apiModelId?: string
+	codexCliPath?: string
+}
+
 type MistralProviderConfig = BaseProviderConfig & {
 	provider: "mistral"
 	apiModelId?: string
@@ -462,6 +468,7 @@ export type ProviderConfig =
 	| VertexProviderConfig
 	| GeminiProviderConfig
 	| GeminiCliProviderConfig
+	| CodexCliProviderConfig
 	| MistralProviderConfig
 	| MoonshotProviderConfig
 	| MinimaxProviderConfig

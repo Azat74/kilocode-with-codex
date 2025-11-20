@@ -112,6 +112,10 @@
 			"apiError": "Gemini CLI API error: {{error}}",
 			"completionError": "Gemini CLI completion error: {{error}}"
 		},
+		"codexCli": {
+			"notFound": "Codex CLI command '{{codexPath}}' was not found.\n\nInstall Codex CLI via npm, Homebrew, or download it from the official GitHub releases, then make sure the 'codex' command is available in your PATH.\n\nOriginal error: {{originalError}}",
+			"executionFailed": "Codex CLI process exited with code {{exitCode}}. {{error}}"
+		},
 		"qwenCode": {
 			"oauthLoadFailed": "Failed to load OAuth credentials. Please authenticate first: {{error}}"
 		},

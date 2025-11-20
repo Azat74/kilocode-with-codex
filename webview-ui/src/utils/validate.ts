@@ -92,6 +92,9 @@ function validateModelsAndKeysProvided(apiConfiguration: ProviderSettings): stri
 		case "gemini-cli":
 			// OAuth-based provider, no API key validation needed
 			break
+		case "codex-cli":
+			// Local CLI provider, configuration handled externally
+			break
 		// kilocode_change end
 		case "openai-native":
 			if (!apiConfiguration.openAiNativeApiKey) {

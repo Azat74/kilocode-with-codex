@@ -398,6 +398,13 @@ export const FIELD_REGISTRY: Record<string, FieldMetadata> = {
 		placeholder: "Enter project ID...",
 	},
 
+	// Codex CLI fields
+	codexCliPath: {
+		label: "Codex CLI Path",
+		type: "text",
+		placeholder: "Default: codex",
+	},
+
 	// ZAI fields
 	zaiApiKey: {
 		label: "API Key",
@@ -776,6 +783,8 @@ export const getProviderSettings = (provider: ProviderName, config: ProviderSett
 				createFieldConfig("geminiCliOAuthPath", config, "~/.gemini/oauth_creds.json"),
 				createFieldConfig("geminiCliProjectId", config),
 			]
+		case "codex-cli":
+			return [createFieldConfig("codexCliPath", config, "codex")]
 
 		case "zai":
 			return [
@@ -898,6 +907,7 @@ export const PROVIDER_DEFAULT_MODELS: Record<ProviderName, string> = {
 	"io-intelligence": "gpt-4o",
 	"qwen-code": "qwen-coder-plus-latest",
 	"gemini-cli": "gemini-1.5-pro-latest",
+	"codex-cli": "gpt-5.1-codex-max",
 	zai: "gpt-4o",
 	unbound: "gpt-4o",
 	requesty: "gpt-4o",

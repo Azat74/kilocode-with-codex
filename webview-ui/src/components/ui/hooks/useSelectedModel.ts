@@ -19,6 +19,8 @@ import {
 	// kilocode_change start
 	geminiCliDefaultModelId,
 	geminiCliModels,
+	codexCliDefaultModelId,
+	codexCliModels,
 	syntheticModels,
 	syntheticDefaultModelId,
 	ovhCloudAiEndpointsDefaultModelId,
@@ -405,6 +407,11 @@ function getSelectedModel({
 			const info = geminiCliModels[id as keyof typeof geminiCliModels]
 			return { id, info }
 		}
+		case "codex-cli": {
+			const id = apiConfiguration.apiModelId ?? codexCliDefaultModelId
+			const info = codexCliModels[id as keyof typeof codexCliModels]
+			return { id, info }
+		}
 		case "virtual-quota-fallback": {
 			if (virtualQuotaActiveModel) {
 				return virtualQuotaActiveModel
@@ -492,7 +499,14 @@ function getSelectedModel({
 		// case "human-relay":
 		// case "fake-ai":
 		default: {
-			provider satisfies "anthropic" | "gemini-cli" | "qwen-code" | "human-relay" | "fake-ai" | "kilocode"
+			provider satisfies
+				| "anthropic"
+				| "gemini-cli"
+				| "codex-cli"
+				| "qwen-code"
+				| "human-relay"
+				| "fake-ai"
+				| "kilocode"
 			const id = apiConfiguration.apiModelId ?? anthropicDefaultModelId
 			const baseInfo = anthropicModels[id as keyof typeof anthropicModels]
 

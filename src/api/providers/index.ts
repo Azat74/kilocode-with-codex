@@ -28,6 +28,7 @@ export { UnboundHandler } from "./unbound"
 export { VertexHandler } from "./vertex"
 // kilocode_change start
 export { OVHcloudAIEndpointsHandler } from "./ovhcloud"
+export { CodexCliHandler } from "./codex-cli"
 export { GeminiCliHandler } from "./gemini-cli"
 export { VirtualQuotaFallbackHandler } from "./virtual-quota-fallback"
 export { SyntheticHandler } from "./synthetic"

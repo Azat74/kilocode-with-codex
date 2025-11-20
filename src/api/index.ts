@@ -32,6 +32,7 @@ import {
 	LiteLLMHandler,
 	// kilocode_change start
 	VirtualQuotaFallbackHandler,
+	CodexCliHandler,
 	GeminiCliHandler,
 	SyntheticHandler,
 	OVHcloudAIEndpointsHandler,
@@ -122,6 +123,8 @@ export function buildApiHandler(configuration: ProviderSettings): ApiHandler {
 		// kilocode_change start
 		case "kilocode":
 			return new KilocodeOpenrouterHandler(options)
+		case "codex-cli":
+			return new CodexCliHandler(options)
 		case "gemini-cli":
 			return new GeminiCliHandler(options)
 		case "virtual-quota-fallback":

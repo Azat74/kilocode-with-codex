@@ -20,6 +20,19 @@ export const openAiNativeModels = {
 			"GPT-5.1 is our flagship model for coding and agentic tasks with configurable reasoning and non-reasoning effort.",
 		supportsVerbosity: true,
 	},
+	"gpt-5.1-codex-max": {
+		maxTokens: 128000,
+		contextWindow: 400000,
+		supportsImages: true,
+		supportsPromptCache: true,
+		supportsReasoningEffort: true,
+		inputPrice: 1.25,
+		outputPrice: 10.0,
+		cacheReadsPrice: 0.125,
+		description:
+			"GPT-5.1-Codex Max is the highest capability Codex model, offering the best quality for agentic coding tasks in local environments like the Codex CLI.",
+		supportsVerbosity: true,
+	},
 	"gpt-5.1-codex": {
 		maxTokens: 128000,
 		contextWindow: 400000,

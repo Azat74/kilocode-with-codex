@@ -9,6 +9,7 @@ export * from "./featherless.js"
 export * from "./fireworks.js"
 export * from "./gemini.js"
 // kilocode_change start
+export * from "./codex-cli.js"
 export * from "./gemini-cli.js"
 export * from "./ovhcloud.js"
 export * from "./synthetic.js"

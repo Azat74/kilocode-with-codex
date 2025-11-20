@@ -9,6 +9,7 @@ import {
 	moonshotModels,
 	// kilocode_change start
 	// geminiModels,
+	codexCliModels,
 	geminiCliModels,
 	syntheticModels,
 	// kilocode_change end
@@ -37,6 +38,7 @@ export const MODELS_BY_PROVIDER: Partial<Record<ProviderName, Record<string, Mod
 	moonshot: moonshotModels,
 	// kilocode_change start
 	// gemini: geminiModels,
+	"codex-cli": codexCliModels,
 	"gemini-cli": geminiCliModels,
 	synthetic: syntheticModels,
 	// kilocode_change end
@@ -64,6 +66,7 @@ export const PROVIDERS = [
 	{ value: "gemini", label: "Google Gemini" },
 	{ value: "doubao", label: "Doubao" },
 	// kilocode_change start
+	{ value: "codex-cli", label: "Codex CLI" },
 	{ value: "inception", label: "Inception" },
 	{ value: "gemini-cli", label: "Gemini CLI" },
 	{ value: "virtual-quota-fallback", label: "Virtual Quota Fallback" },

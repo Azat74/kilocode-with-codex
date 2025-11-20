@@ -45,6 +45,8 @@ import {
 	claudeCodeDefaultModelId,
 	geminiCliModels,
 	geminiCliDefaultModelId,
+	codexCliModels,
+	codexCliDefaultModelId,
 	minimaxModels,
 	minimaxDefaultModelId,
 	ovhCloudAiEndpointsDefaultModelId,
@@ -137,6 +139,7 @@ export const PROVIDER_TO_ROUTER_NAME: Record<ProviderName, RouterName | null> = 
 	roo: null,
 	"claude-code": null,
 	"gemini-cli": null,
+	"codex-cli": null,
 	"virtual-quota-fallback": null,
 	huggingface: null,
 	inception: null,
@@ -186,6 +189,7 @@ export const PROVIDER_MODEL_FIELD: Record<ProviderName, string | null> = {
 	roo: null,
 	"claude-code": null,
 	"gemini-cli": null,
+	"codex-cli": null,
 	"virtual-quota-fallback": null,
 	huggingface: null,
 	inception: "inceptionLabsModelId",
@@ -255,6 +259,7 @@ export const DEFAULT_MODEL_IDS: Partial<Record<ProviderName, string>> = {
 	zai: internationalZAiDefaultModelId,
 	roo: rooDefaultModelId,
 	"gemini-cli": geminiCliDefaultModelId,
+	"codex-cli": codexCliDefaultModelId,
 	ovhcloud: ovhCloudAiEndpointsDefaultModelId,
 }
 
@@ -390,6 +395,11 @@ export function getModelsByProvider(params: {
 			return {
 				models: geminiCliModels as ModelRecord,
 				defaultModel: geminiCliDefaultModelId,
+			}
+		case "codex-cli":
+			return {
+				models: codexCliModels as ModelRecord,
+				defaultModel: codexCliDefaultModelId,
 			}
 		default:
 			// For providers without static models (e.g., vscode-lm, human-relay, fake-ai, virtual-quota-fallback)

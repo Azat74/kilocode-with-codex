@@ -37,6 +37,7 @@ This guide provides detailed information on how to configure each provider in Ki
     - [IO Intelligence](#io-intelligence)
     - [Qwen Code](#qwen-code)
     - [Gemini CLI](#gemini-cli)
+    - [Codex CLI](#codex-cli)
     - [ZAI](#zai)
     - [Minimax](#minimax)
     - [Unbound](#unbound)
@@ -1300,6 +1301,37 @@ Gemini CLI integration.
 
 - Requires OAuth credentials file
 - Requires Google Cloud project
+
+---
+
+### codex-cli
+
+Codex CLI integration.
+
+**Description**: Stream responses from the locally installed Codex CLI (`codex` command) into the CLI/extension. Requires Codex CLI to be installed and authenticated.
+
+**Required Fields**:
+
+- `codexCliPath` (text): Optional override for the Codex CLI executable path (default: `codex`).
+- `apiModelId` (text): Model to request from Codex CLI (default: `gpt-5.1-codex-max`).
+
+**Example Configuration**:
+
+```json
+{
+	"id": "default",
+	"provider": "codex-cli",
+	"codexCliPath": "codex",
+	"apiModelId": "gpt-5.1-codex-max"
+}
+```
+
+**Default Model**: `gpt-5.1-codex-max`
+
+**Notes**:
+
+- Ensure `codex login` has been completed before using this provider.
+- Codex CLI runs locally in read-only sandbox mode but may execute read-only commands to inspect the workspace.
 
 ---
 

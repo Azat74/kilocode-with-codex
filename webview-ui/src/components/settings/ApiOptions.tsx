@@ -20,6 +20,7 @@ import {
 	qwenCodeDefaultModelId,
 	geminiDefaultModelId,
 	geminiCliDefaultModelId,
+	codexCliDefaultModelId,
 	deepSeekDefaultModelId,
 	moonshotDefaultModelId,
 	// kilocode_change start
@@ -103,6 +104,7 @@ import {
 	XAI,
 	// kilocode_change start
 	GeminiCli,
+	CodexCli,
 	VirtualQuotaFallbackProvider,
 	Synthetic,
 	OvhCloudAiEndpoints,
@@ -418,6 +420,7 @@ const ApiOptions = ({
 				// kilocode_change start
 				kilocode: { field: "kilocodeModel", default: kilocodeDefaultModel },
 				"gemini-cli": { field: "apiModelId", default: geminiCliDefaultModelId },
+				"codex-cli": { field: "apiModelId", default: codexCliDefaultModelId },
 				synthetic: { field: "apiModelId", default: syntheticDefaultModelId },
 				ovhcloud: { field: "ovhCloudAiEndpointsModelId", default: ovhCloudAiEndpointsDefaultModelId },
 				inception: { field: "inceptionLabsModelId", default: inceptionDefaultModelId },
@@ -452,6 +455,7 @@ const ApiOptions = ({
 		// Providers that don't have documentation pages yet
 		const excludedProviders = [
 			"gemini-cli",
+			"codex-cli",
 			"moonshot",
 			"chutes",
 			"cerebras",
@@ -611,6 +615,10 @@ const ApiOptions = ({
 
 			{selectedProvider === "claude-code" && (
 				<ClaudeCode apiConfiguration={apiConfiguration} setApiConfigurationField={setApiConfigurationField} />
+			)}
+
+			{selectedProvider === "codex-cli" && (
+				<CodexCli apiConfiguration={apiConfiguration} setApiConfigurationField={setApiConfigurationField} />
 			)}
 
 			{selectedProvider === "openai-native" && (

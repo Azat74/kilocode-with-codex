@@ -534,6 +534,18 @@
 			"requirement5": "Requires the Gemini CLI tool to be installed and authenticated first",
 			"freeAccess": "Free tier access via OAuth authentication"
 		},
+		"codexCli": {
+			"pathLabel": "Codex CLI Path",
+			"pathDescription": "Optional path to the 'codex' executable. Defaults to 'codex' if left empty.",
+			"description": "This provider runs your local Codex CLI (the `codex` command) and streams its responses into Kilo.",
+			"instructions": "Run `codex login` (or start the Codex CLI once) to sign in before using this provider.",
+			"setupLink": "Codex CLI Setup Instructions",
+			"requirementsTitle": "Important Requirements",
+			"requirement1": "Install Codex CLI via npm, Homebrew, or the official GitHub releases",
+			"requirement2": "Stay signed in with a ChatGPT plan or provide an API key via `codex login`",
+			"requirement3": "Codex CLI runs locally in read-only sandbox mode and may execute basic commands",
+			"requirement4": "Ensure the 'codex' command is available in your PATH before selecting this provider"
+		},
 		"qwenCode": {
 			"oauthPath": "OAuth Credentials Path (optional)",
 			"oauthPathDescription": "Path to the OAuth credentials file. Leave empty to use the default location (~/.qwen/oauth_creds.json).",

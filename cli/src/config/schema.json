@@ -256,6 +256,7 @@
 						"io-intelligence",
 						"qwen-code",
 						"gemini-cli",
+						"codex-cli",
 						"zai",
 						"minimax",
 						"unbound",
@@ -1883,6 +1884,23 @@
 				},
 				{
 					"if": {
+						"properties": { "provider": { "const": "codex-cli" } }
+					},
+					"then": {
+						"properties": {
+							"codexCliPath": {
+								"type": "string",
+								"description": "Codex CLI binary path"
+							},
+							"apiModelId": {
+								"type": "string",
+								"description": "Codex CLI model ID"
+							}
+						}
+					}
+				},
+				{
+					"if": {
 						"properties": {
 							"provider": { "const": "qwen-code" },
 							"qwenCodeOauthPath": { "type": "string", "minLength": 1 }
@@ -1941,6 +1959,20 @@
 					"if": {
 						"properties": {
 							"provider": { "const": "gemini-cli" },
+							"apiModelId": { "type": "string", "minLength": 1 }
+						},
+						"required": ["apiModelId"]
+					},
+					"then": {
+						"properties": {
+							"apiModelId": { "minLength": 1 }
+						}
+					}
+				},
+				{
+					"if": {
+						"properties": {
+							"provider": { "const": "codex-cli" },
 							"apiModelId": { "type": "string", "minLength": 1 }
 						},
 						"required": ["apiModelId"]

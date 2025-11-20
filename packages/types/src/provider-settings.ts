@@ -27,6 +27,7 @@ import {
 	xaiModels,
 	internationalZAiModels,
 	minimaxModels,
+	codexCliModels,
 } from "./providers/index.js"
 import { toolUseStylesSchema } from "./kilocode/native-function-calling.js"
 
@@ -139,6 +140,7 @@ export const providerNames = [
 	"fireworks",
 	"gemini",
 	"gemini-cli",
+	"codex-cli",
 	"groq",
 	"mistral",
 	"moonshot",
@@ -327,6 +329,10 @@ const geminiSchema = apiModelIdProviderModelSchema.extend({
 const geminiCliSchema = apiModelIdProviderModelSchema.extend({
 	geminiCliOAuthPath: z.string().optional(),
 	geminiCliProjectId: z.string().optional(),
+})
+
+const codexCliSchema = apiModelIdProviderModelSchema.extend({
+	codexCliPath: z.string().optional(),
 })
 // kilocode_change end
 
@@ -539,6 +545,7 @@ export const providerSettingsSchemaDiscriminated = z.discriminatedUnion("apiProv
 	xaiSchema.merge(z.object({ apiProvider: z.literal("xai") })),
 	// kilocode_change start
 	geminiCliSchema.merge(z.object({ apiProvider: z.literal("gemini-cli") })),
+	codexCliSchema.merge(z.object({ apiProvider: z.literal("codex-cli") })),
 	kilocodeSchema.merge(z.object({ apiProvider: z.literal("kilocode") })),
 	virtualQuotaFallbackSchema.merge(z.object({ apiProvider: z.literal("virtual-quota-fallback") })),
 	syntheticSchema.merge(z.object({ apiProvider: z.literal("synthetic") })),
@@ -575,6 +582,7 @@ export const providerSettingsSchema = z.object({
 	...geminiSchema.shape,
 	// kilocode_change start
 	...geminiCliSchema.shape,
+	...codexCliSchema.shape,
 	...kilocodeSchema.shape,
 	...virtualQuotaFallbackSchema.shape,
 	...syntheticSchema.shape,
@@ -674,6 +682,7 @@ export const modelIdKeysByProvider: Record<TypicalProvider, ModelIdKey> = {
 	lmstudio: "lmStudioModelId",
 	gemini: "apiModelId",
 	"gemini-cli": "apiModelId",
+	"codex-cli": "apiModelId",
 	mistral: "apiModelId",
 	moonshot: "apiModelId",
 	minimax: "apiModelId",
@@ -827,6 +836,11 @@ export const MODELS_BY_PROVIDER: Record<
 		id: "vscode-lm",
 		label: "VS Code LM API",
 		models: Object.keys(vscodeLlmModels),
+	},
+	"codex-cli": {
+		id: "codex-cli",
+		label: "Codex CLI",
+		models: Object.keys(codexCliModels),
 	},
 	xai: { id: "xai", label: "xAI (Grok)", models: Object.keys(xaiModels) },
 	zai: { id: "zai", label: "Zai", models: Object.keys(internationalZAiModels) },
